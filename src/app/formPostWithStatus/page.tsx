@@ -1,4 +1,5 @@
 import { revalidatePath } from "next/cache";
+import { AddButton } from "./addButton";
 
 const todos: string[] = [
   "Learn ReactJS"
@@ -17,6 +18,9 @@ export default function Home(){
     their values, which can then be easily sent using the XMLHttpRequest.send() method. 
     It uses the same format a form would use if the encoding type were set to "multipart/form-data".*/
     "use server"; //To say this fn() is a server action, 
+
+    await new Promise(res => setTimeout(res, 3000))
+
     console.log(todos);
     // get the data and corece it to a string 
     // get() is FormData obj method
@@ -29,9 +33,9 @@ export default function Home(){
   return (
     <main className="p-5">
       <h1 className="text-4xl font-bold text-center">Todos</h1>
-      <h3 className="text-4xl font-bold text-center">Form Post</h3>
+      <h3 className="text-4xl font-bold text-center">Form Post With Status</h3>
       <br /><br /><br />
-      <ul>
+      <ul className="bottom-10">
         {todos.map((todo, index) => (
           <li key={index}>{todo}</li>
         ))}
@@ -42,12 +46,7 @@ export default function Home(){
           name="todo" 
           className="border border-gray-300 rounded-lg py-4 px-4 mx-4 text-basis" 
         />
-        <button
-          type="submit"
-          className="bg-blue-600 disabled:bg-gray-500 inline-flex items-center py-4 px-4 rounded-lg my-3"
-        >
-          Add Todo
-        </button>
+       <AddButton />
       </form>
     </main>
   )
