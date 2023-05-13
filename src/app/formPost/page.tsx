@@ -40,7 +40,7 @@ export default function Home(){
         <input 
           type="text" 
           name="todo" 
-          className="border border-gray-300 rounded-lg py-4 px-4 mx-4 text-basis" 
+          className="border border-gray-300 rounded-lg py-4 px-4 mx-4 text-base" 
         />
         <button
           type="submit"
